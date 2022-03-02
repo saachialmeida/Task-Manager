@@ -1,0 +1,18 @@
+{
+  "name": "mern-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "server": "concurrently \"pm2 stop mern-tm-api\" \"pm2 start ./server/app.js --name mern-tm-api   --watch\"",
+    "client": "cd ./client && npm start&",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "pm2": "^4.4.0"
+  }
+}
